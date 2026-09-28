@@ -30,9 +30,9 @@ double hy = 0.7;
 printf("     x        y         V\n"); 
 printf("-------------------------------\n");
 
-for (x = x_start; x <= x_end + hx / 2.0; x += hx)
+for (x = x_start; x <= x_end; x += hx)
 {
-for (y = y_start; y<= y_end + hy / 2.0; y += hy)
+for (y = y_start; y<= y_end; y += hy)
 {
 V_value = calculate_V(x, y);
 printf("%8.2f %8.2f %12.6f\n", x, y, V_value);
