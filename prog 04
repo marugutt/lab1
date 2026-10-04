@@ -1,0 +1,25 @@
+!/bin/bash
+
+while true
+do
+    read -p "Введите имя файла: " filename
+
+    if [ ! -f "$filename" ]
+    then
+        echo "Ошибка: файл не существует."
+    else
+        date=$(date +"%F")
+        backup="${filename}_${date}"
+
+        cp "$filename" "$backup"
+
+        if [ $? -eq 0 ]
+        then
+            echo "Резервная копия создана: $backup"
+            break
+        else
+            echo "Ошибка: не удалось создать копию."
+            break
+        fi
+    fi
+done
