@@ -1,0 +1,13 @@
+#!/bin/bash
+remove_duplicates() {
+        local unique=()
+
+        for arg in "$@"; do
+                if [[ ! " ${unique[*]} " =~ " ${arg} " ]]; then
+                        unique+=("$arg")
+                fi
+        done
+        echo "${unique[@]}"
+}
+
+remove_duplicates "$@"
